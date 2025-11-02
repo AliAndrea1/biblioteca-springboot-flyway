@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+<h1 class="titulo-pagina">Usuários</h1>
+
+<div class="navbar">
+    <a href="/usuarios/novo">Novo Usuário</a>
+    <a href="/livros">Ir para Livros</a>
+</div>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.nome}"></td>
+        <td th:text="${usuario.email}"></td>
+        <td>
+            <a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}">Editar</a> |
+            <a th:href="@{/usuarios/excluir/{id}(id=${usuario.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

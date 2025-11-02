@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Livros</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+<h1 th:text="${titulo != null} ? ${titulo} : 'Todos os Livros'"></h1>
+
+<div class="navbar">
+    <a href="/livros/novo">Novo Livro</a>
+    <a href="/livros">Todos</a>
+    <a href="/livros/disponiveis">Disponíveis</a>
+    <a href="/livros/emprestados">Emprestados</a>
+    <a href="/usuarios">Usuários</a>
+    <a href="/emprestimos">Empréstimos</a>
+</div>
+
+<p th:if="${erro}" th:text="${erro}" style="color:red; font-weight:bold;"></p>
+<p th:if="${mensagem}" th:text="${mensagem}" style="color:green; font-weight:bold;"></p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Ano</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td th:text="${livro.ano}"></td>
+        <td th:text="${livro.emprestado ? 'Emprestado' : 'Disponível'}"></td>
+        <td>
+            <a th:href="@{/livros/editar/{id}(id=${livro.id})}">Editar</a> |
+            <a th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
