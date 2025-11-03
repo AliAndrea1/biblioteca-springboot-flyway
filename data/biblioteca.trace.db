@@ -1,0 +1,6 @@
+2025-11-02 21:34:40.205693-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM LIVRO USUARIO [*]EMPRESTIMO"; SQL statement:
+SELECT * FROM LIVRO USUARIO EMPRESTIMO [42000-232]
+2025-11-02 21:35:08.853176-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]""flyway_schema_history"""; SQL statement:
+"flyway_schema_history" [42000-232]
